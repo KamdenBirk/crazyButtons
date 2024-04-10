@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        body, .jumbotron { padding: 30px; }
+        .text-giant { font-size: 40px; }
+        .btn-crazy { position: absolute; top: 30px; left: 35%; width:30%; transition: 0.5s ease all; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="text-center">
+        <button type="button" style="top:50%; left: 70%;" class="btn-crazy btn btn-lg btn-danger">Click Me!</button>
+    </div>
+    <div class="text-center">
+        <button type="button" style="top:50%;" class="btn-crazy btn btn-lg btn-success">Click Me!</button>
+    </div>
+    <div class="text-center">
+        <button type="button" style="top:50%; left: 0;" class="btn-crazy btn btn-lg btn-primary">Click Me!</button>
+    </div>
+    <!--Start Javascript-->
+    <script>
+        //Grab everything we need
+        const crazyButtons = document.querySelectorAll(".btn-crazy");
+        //define our functions
+        function goCrazy() {
+            //get a random number for the left offset
+            const offsetLeft = Math.random() * (window.innerWidth - this.clientWidth);
+            //random num for top offset
+            const offsetTop = Math.random() * (window.innerHeight - this.clientHeight);
+            //apply numbers to the button
+            this.style.top = offsetTop + 'px';
+            this.style.left = offsetLeft + "px";
+            //extra for fun =======================================
+            //const box = document.createElement("div");
+            //box.setAttribute("class", "text-center");
+            //const button = document.createElement("button");
+            //button.setAttribute("type", "button");
+            //button.setAttribute("class", "btn-crazy btn-danger btn-lg");
+            //button.innerHTML = "Click Me!";
+            //box.innerHTML = button.outerHTML;
+            //document.body.appendChild(box);
+            //const buttons = document.querySelectorAll(".btn-crazy");
+            //buttons.forEach(button => button.addEventListener("mouseenter", goCrazy));
+            //end fun ==============================================
+        }
+        //add event listeners
+        crazyButtons.forEach(button => button.addEventListener("mouseenter", goCrazy));
+
+;    </script>
+</body>
+</html>
