@@ -34,22 +34,26 @@
             //apply numbers to the button
             this.style.top = offsetTop + 'px';
             this.style.left = offsetLeft + "px";
-            //extra for fun =======================================
-            //const box = document.createElement("div");
-            //box.setAttribute("class", "text-center");
-            //const button = document.createElement("button");
-            //button.setAttribute("type", "button");
-            //button.setAttribute("class", "btn-crazy btn-danger btn-lg");
-            //button.innerHTML = "Click Me!";
-            //box.innerHTML = button.outerHTML;
-            //document.body.appendChild(box);
-            //const buttons = document.querySelectorAll(".btn-crazy");
-            //buttons.forEach(button => button.addEventListener("mouseenter", goCrazy));
-            //end fun ==============================================
         }
         //add event listeners
         crazyButtons.forEach(button => button.addEventListener("mouseenter", goCrazy));
+        //Extra for fun ========================================
+        crazyButtons.forEach(button => button.addEventListener("click", createButton));
 
-;    </script>
+        function createButton() {
+            const box = document.createElement("div");
+            box.setAttribute("class", "text-center");
+            const button = document.createElement("button");
+            button.setAttribute("type", "button");
+            button.setAttribute("class", "btn-crazy btn-warning btn-lg");
+            button.innerHTML = "Click Me!";
+            box.innerHTML = button.outerHTML;
+            document.body.appendChild(box);
+            const buttons = document.querySelectorAll(".btn-crazy");
+            buttons.forEach(button => button.addEventListener("mouseenter", goCrazy));
+            buttons.forEach(button => button.addEventListener("click", createButton));
+        }
+        //End of fun ============================================
+    </script>
 </body>
 </html>
